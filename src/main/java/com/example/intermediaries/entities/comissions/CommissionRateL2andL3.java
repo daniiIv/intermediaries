@@ -1,8 +1,7 @@
-package com.example.intermiteries.comissions;
+package com.example.intermediaries.entities.comissions;
 
-import com.example.intermiteries.info.IntermidiaryTypes;
-import com.example.intermiteries.products.ProductType;
-import com.example.intermiteries.registrations.ParentIntermediaries;
+import com.example.intermediaries.entities.products.ProductType;
+import com.example.intermediaries.entities.registrations.ParentIntermediaries;
 import jakarta.persistence.*;
 
 @Table
@@ -10,7 +9,7 @@ import jakarta.persistence.*;
 public class CommissionRateL2andL3 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     private  int commissionRateTotal;
 
     @ManyToOne()

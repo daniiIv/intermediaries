@@ -1,6 +1,6 @@
-package com.example.intermiteries.registrations;
+package com.example.intermediaries.entities.registrations;
 
-import com.example.intermiteries.info.IntermidiaryTypes;
+import com.example.intermediaries.entities.intermediariesinfo.IntermediaryTypes;
 import jakarta.persistence.*;
 
 @Table
@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class ChildrenIntermediaries {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
 
     private String title ;
 
@@ -18,9 +18,9 @@ public class ChildrenIntermediaries {
 
     @ManyToOne()
     @JoinColumn(name = "FK_intermediaryTypesId", referencedColumnName = "id")
-    private IntermidiaryTypes intermediaryType ;
+    private IntermediaryTypes intermediaryType ;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -28,9 +28,11 @@ public class ChildrenIntermediaries {
        return this.title ;
     }
 
-    public void setTitle(String title) {
-        this.title = getIntermediaryType().getIntermidiaryType() +
-                "" + getId();
+    public void setTitle() {
+
+            this.title = getIntermediaryType().getIntermidiaryType() +
+                    "" + getId();
+
     }
 
     public ParentIntermediaries getParentIntermediaries() {
@@ -41,13 +43,13 @@ public class ChildrenIntermediaries {
         this.parentIntermediaries = parentIntermediaries;
     }
 
-    public IntermidiaryTypes getIntermediaryType() {
+    public IntermediaryTypes getIntermediaryType() {
         return intermediaryType;
     }
 
-    public void setIntermediaryType() {
+    public void setIntermediaryType(IntermediaryTypes intermediaryTypes) {
         if(getParentIntermediaries()!=null){
-            this.intermediaryType =  parentIntermediaries.getIntermidiaryType();
+            this.intermediaryType = intermediaryTypes;
         }
 
     }

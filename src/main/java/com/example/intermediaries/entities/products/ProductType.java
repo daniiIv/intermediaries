@@ -1,4 +1,4 @@
-package com.example.intermiteries.products;
+package com.example.intermediaries.entities.products;
 
 import jakarta.persistence.*;
 
@@ -9,7 +9,8 @@ import static jakarta.persistence.GenerationType.*;
 public class ProductType {
     @Id
     @GeneratedValue(strategy = AUTO)
-    private int id;
+    private Integer id;
+    @Enumerated(EnumType.STRING)
     private ProductCodeAndTitle code;
 
     private String title ;

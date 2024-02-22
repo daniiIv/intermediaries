@@ -1,5 +1,5 @@
 package com.example.intermediaries.entities.intermediariesinfo;
 
-public enum TypeOfIntermidiary {
+public enum TypeOfIntermediary {
     HQ, A, B, AB;
 }

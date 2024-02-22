@@ -1,5 +1,5 @@
 package com.example.intermediaries.entities.intermediariesinfo;
 
-public enum LevelOfIntermidiary {
+public enum LevelOfIntermediary {
     L1, L2, L3, L4;
 }

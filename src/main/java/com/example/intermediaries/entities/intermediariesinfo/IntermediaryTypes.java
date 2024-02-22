@@ -1,18 +1,22 @@
 package com.example.intermediaries.entities.intermediariesinfo;
 
+import com.example.intermediaries.entities.registrations.ParentIntermediaries;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table
-public class IntermidiaryTypes {
+public class IntermediaryTypes {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    private TypeOfIntermediary intermidiaryType;
-    private LevelOfIntermediary intermidiaryLevel;
-    //@OneToMany()
-    //private List<ParentIntermediaries> parentIntermediariesList;
+    @Enumerated(EnumType.STRING)
+    private TypeOfIntermediary intermediaryType;
+    @Enumerated(EnumType.STRING)
+    private LevelOfIntermediary intermediaryLevel;
+    @OneToMany()
+    private List<ParentIntermediaries> parentIntermediariesList;
 
     public Integer getId() {
         return id;
@@ -23,18 +27,26 @@ public class IntermidiaryTypes {
     }
 
     public TypeOfIntermediary getIntermidiaryType() {
-        return intermidiaryType;
+        return intermediaryType;
     }
 
-    public void setIntermidiaryType(TypeOfIntermediary intermidiaryType) {
-        this.intermidiaryType = intermidiaryType;
+    public void setIntermediaryType(TypeOfIntermediary intermediaryType) {
+        this.intermediaryType = intermediaryType;
     }
 
-    public LevelOfIntermediary getIntermidiaryLevel() {
-        return intermidiaryLevel;
+    public LevelOfIntermediary getIntermediaryLevel() {
+        return intermediaryLevel;
     }
 
-    public void setIntermidiaryLevel(LevelOfIntermediary intermidiaryLevel) {
-        this.intermidiaryLevel = intermidiaryLevel;
+    public void setIntermidiaryLevel(LevelOfIntermediary intermediaryLevel) {
+        this.intermediaryLevel = intermediaryLevel;
+    }
+
+    public List<ParentIntermediaries> getParentIntermediariesList() {
+        return parentIntermediariesList;
+    }
+
+    public void setParentIntermediariesList(List<ParentIntermediaries> parentIntermediariesList) {
+        this.parentIntermediariesList = parentIntermediariesList;
     }
 }

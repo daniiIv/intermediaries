@@ -1,4 +1,4 @@
-package com.example.intermiteries.products;
+package com.example.intermediaries.entities.products;
 
 public enum ProductCodeAndTitle {
     GO("Citizens responsibility"),

@@ -1,20 +1,22 @@
-package com.example.intermiteries.comissions;
+package com.example.intermediaries.entities.comissions;
 
-import com.example.intermiteries.registrations.ChildrenIntermediaries;
-import com.example.intermiteries.registrations.ParentIntermediaries;
+import com.example.intermediaries.entities.registrations.ChildrenIntermediaries;
+import com.example.intermediaries.entities.registrations.ParentIntermediaries;
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 
 @Table
 @Entity
 public class CommissionRateL3andL4 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     @ManyToOne()
     @JoinColumn(name = "FK_commission_rate_L3_id", referencedColumnName = "id")
     private CommissionRateL2andL3 commissionRateL2andL3;
 
     private int commissionRateTotal;
+    private int commissionRatePersonal;
 
     @ManyToOne()
     @JoinColumn(name = "FK_parentIntermediaries_id", referencedColumnName = "id" , nullable = true)
@@ -59,5 +61,13 @@ public class CommissionRateL3andL4 {
 
     public void setChildrenIntermediaries(ChildrenIntermediaries childrenIntermediaries) {
         this.childrenIntermediaries = childrenIntermediaries;
+    }
+
+    public int getCommissionRatePersonal() {
+        return commissionRatePersonal;
+    }
+
+    public void setCommissionRatePersonal(int commissionRatePersonal) {
+        this.commissionRatePersonal = commissionRatePersonal;
     }
 }

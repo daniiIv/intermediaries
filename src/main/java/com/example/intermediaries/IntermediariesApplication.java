@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IntermiteriesApplication {
+public class IntermediariesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(IntermiteriesApplication.class, args);
+        SpringApplication.run(IntermediariesApplication.class, args);
     }
 
 }

@@ -1,0 +1,39 @@
+Project Overview: Intermediaries in Insurance Company
+
+Stage 1: Tables Creation
+Creation of entities grouped into packages based on context.
+
+Stage 2: Data Generation
+
+Generate values for product and intermediary types using post-construct methods.
+Use @Scheduled(fixedRate = 5000) to schedule data generation tasks.
+Utilize @EnableScheduling in the Application class.
+Generate intermediary entity data, including assignment of agents.
+Generate commission rate tables for brokers and HQ-agents.
+Save data to the database and concurrentHashMap for faster access.
+Strategy: Utilize data from hashmaps to avoid extra queries.
+Generate sales table data, track creationTimestamp, and calculate statistics.
+Chain methods to ensure consistency and avoid repeated sales.
+
+Stage 3: Automatic Data Display (Statistics)
+
+Implement a server-sent-events (SSE) controller.
+Use Flux to build a Map collecting company profit statistics and display updates every 5 seconds.
+Display broker and their agents' stats, including salesl3andl4.
+Group statistics by HQ-agents from salesl2l3.
+
+Stage 4: Frontend Integration
+
+In the Service:
+Design a method to provide a reactive stream of data representing collected information.
+Create a Flux emitting a timer every 5 seconds, ensuring processing happens on a separate thread pool.
+Keep track of the number of requests made to the Flux.
+Delay element emission by 5 seconds to create a new emission of data every 5 seconds.
+In the Controllers:
+
+Implement a handler method for an HTTP GET request to provide a stream of Server-Sent-Events.
+Map each emission from the Flux to a ServerSentEvent.
+Delay the emission of each ServerSentEvent by 5 seconds to provide updated sales data.
+
+Additional:
+Create DTO objects for better display of data in the Sales tables.

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Company Statistics</title>
+</head>
+<body>
+<h1>Insurance Company Statistics</h1>
+<div id="statistics"></div>
+
+<script>
+    const statisticsElement = document.getElementById('statistics');
+
+    const eventSource = new EventSource('/statistics-stream');
+    eventSource.onmessage = function(event) {
+        const statisticsData = JSON.parse(event.data);
+        updateStatistics(statisticsData);
+    };
+
+    function updateStatistics(statisticsData) {
+        statisticsElement.textContent = `Statistics: ${statisticsData}`;
+    }
+</script>
+</body>
+</html>
